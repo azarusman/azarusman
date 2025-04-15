@@ -1,0 +1,113 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\froman\fprq2\fcharset0 Calibri;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\froman\fprq2\fcharset0 Courier New;}{\f3\froman\fprq2 Calibri;}}
+{\colortbl ;\red0\green77\blue187;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\nowidctlpar\hyphpar0\sa200\sl276\slmult1\kerning1\f0\fs22\lang9 Assessment No 1: Database Concept Batch 2- PostgreSQL\f1\fs24\lang16393\par
+\f0\fs22\lang9 Date: 14-09-2021\f1\fs24\lang16393\par
+\b\f0\fs22\lang9 37 Marks out of 75\b0\par
+\b Question 1: - 0 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Write the order of execution of the below query.\f1\fs24\lang16393\par
+\f0\fs22\lang9 SELECT film_id, title, release_year FROM film ORDER BY film_id LIMIT 4 OFFSET 3;\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: (No screenshot required)\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9 1. FROM\f1\fs24\lang16393\par
+\f0\fs22\lang9 2. ORDER BY\f1\fs24\lang16393\par
+\f0\fs22\lang9 3. LIMIT\f1\fs24\lang16393\par
+\f0\fs22\lang9 4. OFFSET\f1\fs24\lang16393\par
+\f0\fs22\lang9 5. SELECT\par
+\par
+\cf1\b Answer: FROM --> SELECT --> ORDER BY --> LIMIT/OFFSET\cf0\b0\f1\fs24\lang16393\par
+\b\f0\fs22\lang9 Question 2:\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Use employees table. List the employee who has the names \b with same letter consecutively for two times (zz, yy, aa, \'85) \b0 Consider the first_name and last_name column to list the employees. Provide sql for all steps.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Output screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9\par
+\b Question 3: - 5 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Write a SQL query to display all the employee whose \b 'first_name' \b0 as a letter \b 'E' last but 1 letter\b0  in Employees table.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Eg: <Allen> <Alex> - Last but 1 letter.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Output screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9 Query:\f1\fs24\lang16393\par
+\f0\fs22\lang9 select employee_id,first_name,last_name from employees where first_name like '%e_';\f1\fs24\lang16393\par
+\f0\fs22\lang9 Screenshot:\f1\fs24\lang16393\par
+\par
+\f0\fs22\lang9\par
+\b Question 4: - 5 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Display the \b 5th maximum salary \b0 from the Employees table.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Ouput screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer: select max(salary) as Max_salary from employees group by salary order by salary desc offset 4 rows fetch next 1 row only;\f1\fs24\lang16393\par
+\f0\fs22\lang9 To remove the duplicate salary i used group by function and used aggregate function in select clause.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Screenshot:\f1\fs24\lang16393\par
+\par
+\f0\fs22\lang9\par
+Question 5: - \b 5 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Do the following and provide all SQL steps.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Use Employees table. \b Use CASE statement\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 i) All the employee who gets their salary \b less than 4000\b0 ,  display their position as \b New Joinee\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 ii) All the employee who gets their salary \b between 4001 and 10000\b0 , display their position as \b Jr_employee\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 iii) All the employee who gets their salary \b greater than 10000\b0 ,  display their position as \b Sr_employee\b0 .\f1\fs24\lang16393\par
+\f0\fs22\lang9 Display the Output as below.\f1\fs24\lang16393\par
+\f0\fs22\lang9 employee_id, \f2\fs20 first_name,last_name, salary, position\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Ouput screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f2\fs20\lang9 select employee_id, first_name, last_name, salary, case when salary <= 4000 then 'New_Joinee' when salary between 4001 and 10000 then 'Jr_employee' when salary > 10000 then 'Sr_employee' else null end as position from employees;\f1\fs24\lang16393\par
+\f2\fs20\lang9 screenshot:\f1\fs24\lang16393\par
+\f0\fs22\lang9\par
+\f1\fs24\lang16393\par
+\par
+\b\f0\fs22\lang9 Question 6: - Not considered for the Assessment\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Update the \b First_name \b0 as \b 'Steve' \b0 for the \b Employee Id '100' \b0 in Employees table using \b UPSERT\b0  command.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Output screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9 INSERT INTO employees (employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (100,'Steve','King','steven.king@sqltutorial.org','515.123.4567','1987-06-17',4,24000.00,NULL,9) on conflict (employee_id) do update set first_name = 'Steve';\f1\fs24\lang16393\par
+\f0\fs22\lang9\par
+\b Question 7: - 5 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Write a SQL query to find the count of the total occurrences of a \b particular character \f3\endash\f0  \lquote e\rquote  \b0 in the \b email\b0  field in Employees table. \f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer: select email,length(email)-length(replace(email,'e',''))  as total_occurance from employees;\f1\fs24\lang16393\par
+\par
+\f0\fs22\lang9\par
+\f1\fs24\lang16393\par
+\par
+\b\f0\fs22\lang9 Question 8: - 5 Marks\b0\f1\fs24\lang16393\par
+
+\pard\nowidctlpar\hyphpar0\sa160\sl259\slmult0\f0\fs22\lang9 Use \b employees, deptartments \b0 table. Provide sql for all steps.\f1\fs24\lang16393\par
+
+\pard\nowidctlpar\hyphpar0\sa200\sl276\slmult1\f0\fs22\lang9 Use \b subquery\b0  to join the employees and deptartments table. If the department matched with departments table then list the records.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:select * from employees where department_id in (select department_id from departments);\f1\fs24\lang16393\par
+\par
+\par
+\f0\fs22\lang9\par
+\b Question 9: -7 Marks (out of 15)\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Create a table with primary key, unique key, not null, check constraints. The primary key to be composite key also. The table should contain minimum 10 columns and define with different data type. Decide the column names, table names and data type as per your thinking. Use Sequence for the any one column in the table. Add department_id column and relate this column with dept table. Insert 5 records in this table. Provide the table creation sql and insert sql. Provide sql for all steps.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9 CREATE TABLE TRIAL (TRIAL_ALIAS_CODE\~VARCHAR(20)\~PRIMARY KEY,\~\~TRIAL_ID SERIAL,\~\~SPECIAL_NAME\~VARCHAR(20) UNIQUE NULL,\~\~TRIAL_SHORT_DESC VARCHAR(60) UNIQUE NOT NULL,\~\~CLINICAL_PLAN_ALIAS_CODE VARCHAR(20) UNIQUE NOT NULL,\~\~TRIAL_UNITS_PLANNED DECIMAL(5),\~\~INTEGRATED_SINGLE_COUNTRY_FLAG BOOLEAN NOT NULL,\~\~HISTORIC_TRIAL_FLAG VARCHAR(1) CHECK(HISTORIC_TRIAL_FLAG IN ('Y','N')),\~FLAG_CONF_PAT_CHANGES_IND VARCHAR(1) CHECK(FLAG_CONF_PAT_CHANGES_IND IN ('Y','N')),\~EUDRACT_NO VARCHAR(15) DEFAULT 'SAMPLE',\~EU_TRIAL VARCHAR(1) CHECK(EU_TRIAL IN ('Y','N')),\~COUNTRIES_PLANNED DECIMAL(3),\~\~COUNTRIES_ALL_SET_UP_FLAG VARCHAR(1)\~CHECK(COUNTRIES_ALL_SET_UP_FLAG IN ('Y','N')),\~\~CONCEPT_TRIAL_FLAG VARCHAR(1) CHECK(CONCEPT_TRIAL_FLAG IN ('Y','N')),\~\~COMMENTS VARCHAR(2000),\~ALLOW_NOT_REQUIRED_PAT_PAGES VARCHAR(1) CHECK(ALLOW_NOT_REQUIRED_PAT_PAGES IN ('Y','N'))\~);\~ \par
+\cf1\b We have requested to create a table which can be linked with Department table using Department_Id field. But the field listed in the above syntax is different to our expectation, and also the sequence is not implement. But Good Try\cf0\b0\f1\fs24\lang16393\par
+\b\f0\fs22\lang9 Question 10: - 5 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Use Countries, regions, locations table. Join all three table with the given join type. \f1\fs24\lang16393\par
+\f0\fs22\lang9 i) Locations table to be joined with countries table using \b Inner join\b0 . \f1\fs24\lang16393\par
+\f0\fs22\lang9 ii) Then regions table to be joined with the \b previous join output \b0 using \b full outer join\b0 . It should be a single join query finally. ((locations inner join countries ) full outer join regions).\f1\fs24\lang16393\par
+\f0\fs22\lang9 Show all the column names in the sql output. Provide sql for all steps.\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:select r.*,v.* from regions r full join (select c.*,l.* from countries c inner join locations l on c.country_id = l.country_id) v on r.region_id = v.region_id;\f1\fs24\lang16393\par
+\par
+\f0\fs22\lang9\par
+\b Question 11: - 0 Marks\b0\f1\fs24\lang16393\par
+
+\pard\nowidctlpar\hyphpar0\sa160\sl259\slmult0\f0\fs22\lang9 Do  the following. Provide sql for all steps.\f1\fs24\lang16393\par
+
+\pard\nowidctlpar\hyphpar0\sa200\sl276\slmult1\f0\fs22\lang9 List all the \b table name along with record count \b0 from the public schema of postgres database using \b single sql statement\b0 . \f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9\par
+\b Question 12: - 0 Marks\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Group all the employee in Employees table based on their manger_id and department_id, and group the employee based on their manager_id, and group the employee based on their Department_id using \b single SQL statement.\b0\f1\fs24\lang16393\par
+\f0\fs22\lang9 Note: Screenshot is MUST\f1\fs24\lang16393\par
+\f0\fs22\lang9 Answer:\f1\fs24\lang16393\par
+\f0\fs22\lang9 select count(manager_id), count(department_id) from employees group by manager_id,department_id;\par
+\par
+\cf1\b We need to Grouping method to achieve the output. We will share the output in the Group.\cf0\b0\f1\fs24\lang16393\par
+\par
+}
+ 
